@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="DoublePendulum">
+    <link name="Base">
+        <inertial>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+    <link name="Body1">
+        <inertial>
+            <origin rpy="0.00000000 0.00000000 0.00000000" xyz="0.00000000 0.50000000 0.00000000"/>
+            <mass value="0.50000000"/>
+            <inertia ixx="0.50000000" ixy="0.00000000" ixz="0.00000000" iyy="0.50000000" iyz="0.00000000" izz="0.50000000"/>
+        </inertial>
+    </link>
+    <link name="Body2">
+        <inertial>
+            <origin rpy="0.00000000 0.00000000 0.00000000" xyz="0.00000000 0.50000000 0.00000000"/>
+            <mass value="0.50000000"/>
+            <inertia ixx="0.50000000" ixy="0.00000000" ixz="0.00000000" iyy="0.50000000" iyz="0.00000000" izz="0.50000000"/>
+        </inertial>
+    </link>
+    <joint name="Joint1" type="revolute">
+        <parent link="Base"/>
+        <child link="Body1"/>
+        <origin rpy="-1.57079633  0.00000000  0.00000000" xyz="0.00000000  0.00000000 -0.05000000"/>
+        <axis xyz="0.00000000 0.00000000 1.00000000"/>
+        <limit lower="-3.14159265" upper="3.14159265" effort="0" velocity="0"/>
+    </joint>
+    <joint name="Joint2" type="revolute">
+        <parent link="Body1"/>
+        <child link="Body2"/>
+        <origin rpy="0.00000000 0.00000000 0.00000000" xyz="0.00000000 1.00000000 0.00000000"/>
+        <axis xyz="0.00000000 0.00000000 1.00000000"/>
+        <limit lower="-3.14159265" upper="3.14159265" effort="0" velocity="0"/>
+    </joint>
+</robot>
